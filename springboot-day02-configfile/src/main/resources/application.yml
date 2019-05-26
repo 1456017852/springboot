@@ -1,0 +1,18 @@
+person:
+  id: 1
+  name: "naruto \n wangli"
+  isBoss: false
+  birth: 2019-05-26
+  maps: {k1: v1,k2: v2}
+  lists:
+    - v1
+    - v2
+    - v3
+  dog:
+    name: 来福
+    age: 5
+
+user:
+  id: 1
+  name: naruto
+  age: 18
