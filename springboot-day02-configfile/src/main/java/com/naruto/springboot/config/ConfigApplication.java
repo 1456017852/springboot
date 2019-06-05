@@ -71,9 +71,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  *   (4)在ConfigApplicationTests中测试
  *
  * 4、springboot读取配置文件的属性配置
- *  (1)@ConfigurationProperties(prefix = "XXX")读取springboot的配置文件
- *  (2)@Value读取springboot的配置文件
- *  (3)PropertySource("classpath:XXX")+@Value读取自定义的配置文件
+ *  (1)@ConfigurationProperties(prefix = "XXX")读取springboot的配置文件和IOC容器中bean的属性自动映射
+ *  (2)@Value读取springboot的配置文件和IOC容器中bean的属性自动映射
+ *  (3)PropertySource("classpath:XXX")+@Value读取自定义的配置文件和bean的属性自动映射
  *  (4)@ImportResource读取自定义的spring配置文件
  *
  * 5、springboot配置文件的加载位置
@@ -83,7 +83,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  *      classpath:/config/
  *      classpath:/
  * 加载优先级由高到低,高优先级的会覆盖低优先级的配置，互补配置
- *
  * 还可以通过spring.config.location来指定springboot的配置文件
  *
  *

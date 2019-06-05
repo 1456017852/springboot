@@ -4,7 +4,22 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /***
- * 一、springboot对springmvc的自动配置--【WebMvcAutoConfiguration】
+ * 一、springboot下的springmvc注解
+ * 1、@controller
+ * 同springmvc中的用法一样，用于前端控制器的注解
+ * 2、@Resrcontroller
+ * 相当于@controller和@ResponseBody的组合，该注解用于数据的返回，不能用于页面的跳转
+ * 3、@GetMappering
+ * 相当于RequestMapperin和get方法请求的组合
+ * 4、@PostMappering
+ * 相当于RequestMapperin和post方法请求的组合
+ * 5、@PutMappering
+ * 相当于RequestMapperin和put方法请求的组合,可以用post代替
+ * 6、@DeleteMappering
+ * 相当于RequestMapperin和delete方法请求的组合，可以用get代替；
+ *
+ *
+ * 二、springboot对springmvc的自动配置--【WebMvcAutoConfiguration】
  *
  * 1、ContentNegotiatingViewResolver
  *      springboot自动配置了ViewResolver,ContentNegotiatingViewResolver :组合所有的视图解析器
