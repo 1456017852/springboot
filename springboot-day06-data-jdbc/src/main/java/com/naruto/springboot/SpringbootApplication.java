@@ -28,11 +28,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  *
  * 二、springboot对数据源自动配置原理
  *
- * org.springframework.boot.autoconfigure.jdbc包
+ * springboot对数据源自动配置原理在org.springframework.boot.autoconfigure.jdbc包下
  *
  * DataSourceAutoConfiguration：数据源的自动配置类
  *
  * DataSourceConfiguration:数据源的配置类
+ *
  *
  *
  *
