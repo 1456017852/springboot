@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.naruto.springboot.mapper.EmployeeMapper">
+
+    <select id="getEmployeeById" parameterType="java.lang.Integer"
+            resultType="com.naruto.springboot.bean.Employee">
+
+        select * from employee where id=#{id}
+    </select>
+
+    <update id="updateEmployee" parameterType="com.naruto.springboot.bean.Employee">
+        update employee set
+          emp_name=#{empName},
+          email=#{email},
+          dept_id=#{deptId}
+        where id=#{id}
+    </update>
+
+    <insert id="insertEmployee" parameterType="com.naruto.springboot.bean.Employee">
+        insert into employee(id,emp_name,email,dept_id)
+        values (#{id},#{empName},#{email},#{deptId})
+    </insert>
+
+    <delete id="deleteEmployee" parameterType="java.lang.Integer">
+        delete from employee where id=#{id}
+    </delete>
+</mapper>
