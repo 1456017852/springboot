@@ -26,4 +26,12 @@
     <delete id="deleteEmployee" parameterType="java.lang.Integer">
         delete from employee where id=#{id}
     </delete>
+
+    <select id="getEmployees" parameterType="java.lang.String"
+            resultType="com.naruto.springboot.bean.Employee">
+
+        select * from employee where emp_name like CONCAT('%',#{name},'%')
+    </select>
+
+
 </mapper>
