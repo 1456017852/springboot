@@ -67,7 +67,35 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  *
  *          (6)、Cacheconfig:表示在类上，可以将标识在方法上的注解的公共属性提取出来
  *
+ * 三、springboot集成redis
  *
+ * 1、springboot集成redis步骤：
+ *  (1)、pom引入起步依赖
+ *          <dependency>
+ *             <groupId>org.springframework.boot</groupId>
+ *             <artifactId>spring-boot-starter-data-redis</artifactId>
+ *         </dependency>
+ *  (2)、springboot核心配置文件配置
+ *          #redis的配置
+ *          spring.redis.host=192.168.1.108
+ *          spring.redis.port=6379
+ *          spring.redis.password=123456
+ *
+ *  (3)、在SpringbootApplicationTests中注入RedisTemplate和StringRedisTemplate测试
+ *
+ *      StringRedisTemplate 主要对字符串进行操作 RedisTemplate:主要对Object进行操作
+ *
+ *      Redis常见的五大类型：String(字符串)\List(列表)\Set(集合)\zSet(有序集合)\Hash(散列)
+ *
+ *          redisTemplate.opsForValue() == 操作 String 字符串
+ *          redisTemplate.opsForList()  == 操作 List 列表
+ *          redisTemplate.opsForSet()   == 操作 Set 集合
+ *          redisTemplate.opsForZSet()  == 操作 zSet 有序集合
+ *          redisTemplate.opsForHash()  == 操作 Hash 散列
+ *
+ *      RedisTemplate的序列化机制，默认为JdkSerializationRedisSerializer，
+ *      序列化后的数据保存到redis中，不是我们习惯的格式
+ *      我们可以编写Redis的配置类RedisConfig设置RedisTemplate的序列化机制,序列化后的数据保存到redis中,将以JSON的格式展现
  */
 @MapperScan("com.naruto.springboot.mapper")
 @SpringBootApplication

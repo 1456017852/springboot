@@ -6,6 +6,7 @@ import com.naruto.springboot.bean.Employee;
 import com.naruto.springboot.service.EmployService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.*;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,6 +24,9 @@ public class EmployeeController {
 
     @Autowired
     private EmployService employService;
+
+    @Autowired
+    private RedisTemplate redisTemplate;
 
     /**
      *【@Cacheable】
@@ -117,6 +121,22 @@ public class EmployeeController {
     @RequestMapping("/get/empList/{name}")
     public List<Employee> getEmployees(@PathVariable("name") String name){
         return employService.getEmployees(name);
+    }
+
+    /**
+     *
+     * @param name
+     * @return
+     */
+    @RequestMapping("/get/employeeList/{name}")
+    public List<Employee> getEmployeeList(@PathVariable("name") String name){
+        Object empList=redisTemplate.opsForValue().get("emp");
+        if(null==empList){
+            empList=employService.getEmployees(name);
+            redisTemplate.opsForValue().set("emp",empList);
+        }
+
+        return (List<Employee>)empList;
     }
 
 }
